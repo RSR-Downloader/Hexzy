@@ -51,31 +51,24 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-Hi {}, my name is {}!
-Send me /help for more info
+Hi {}, ka hming chu *{}* ani!
+/help tih hi click la,enge ka tangkai na i hrethei ang.
 """
 
 HELP_STRINGS = """
-Hey there! My name is *{}*.
-I'm Most Powerfull & I help admins to manage their groups!
+Hello.
+Kei hi Group enkawl pui thei bot ka ni a,i group ah i zangkhai zawk nan hna ka thawk thei e.
 
-*Main* commands available:
- • /help: PM's you this message.
- • /help <module name>: PM's you info about that module.
- • /donate: information on how to donate!
- • /settings:
-   • in PM: will send you your settings for all supported modules.
-   • in a group: will redirect you to pm, with all that chat's settings.
 
 {}
-And the following: @MizoInFoTel14
+And the following: @mizolibrary
 """.format(
     dispatcher.bot.first_name, ""
-    if not ALLOW_EXCL else "\nAll commands can either be used with / or !.\n")
+    if not ALLOW_EXCL else "\nCommand zawng zawng siam dawn chuan hemi sign 2 hi hman tur ani. / emaw !.\n")
 
-SAITAMA_IMG = "https://telegra.ph/file/b801207a176b5c76f6f27.jpg"
+SAITAMA_IMG = "https://1.bp.blogspot.com/-Z3ESW08JfMI/YDKuBGt6XJI/AAAAAAAAAQ8/GpdpSwrEo8UxpAIc9E2K1ISIxRnrHSLoQCLcBGAsYHQ/s1008/PicsArt_09-14-06.20.21.png"
 
-DONATE_STRING = """Join [Telegram Channel](t.me/MizoInFoTel14)  &  [Telegram Group](t.me/MizoInFoTel1)."""
+DONATE_STRING = """Join [Telegram Channel](t.me/mizolibrary)  &  [Telegram Group](t.me/mp3andvideodownloader)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -97,7 +90,7 @@ for module_name in ALL_MODULES:
         IMPORTED[imported_module.__mod_name__.lower()] = imported_module
     else:
         raise Exception(
-            "Can't have two modules with the same name! Please change one")
+            "Hming pakhat in module 1 aia tam a neih theih loh,thlak rawh")
 
     if hasattr(imported_module, "__help__") and imported_module.__help__:
         HELPABLE[imported_module.__mod_name__.lower()] = imported_module
@@ -194,30 +187,30 @@ def start(update: Update, context: CallbackContext):
                     [[
                         InlineKeyboardButton(
                              text="  Support Group ",
-                             url="https://t.me/MizoInFoTel1"),
+                             url="https://t.me/mp3andvideodownloader"),
                          InlineKeyboardButton(
                              text="  Support Channel ",
-                             url="https://t.me/MizoInFoTel14")
+                             url="https://t.me/mizolibrary")
                      ],
                      [
                         InlineKeyboardButton(
                             text="  Youtube Channel ",
-                            url="https://youtube.com/channel/UC-rDf7LGhEkPl35fpJHX6dg"),
+                            url="https://www.youtube.com/c/RSR8D"),
                          InlineKeyboardButton(
-                            text="  Developer ",
-                             url="https://t.me/ZauteKm")        
+                            text="  Siam tu ",
+                             url="https://t.me/rsrmusic")        
                        
                      ], 
                      [
                         InlineKeyboardButton(
-                            text=" ➕ Add me to Your Group ",
+                            text=" ➕ I awmna group ah min add rawh ",
                             url="t.me/{}?startgroup=true".format(
                                 context.bot.username)),
                     
                     ]]))
     else:
         update.effective_message.reply_text(
-            "Hi! Online turin ka inpeih e!\n<b>Haven't slept since:</b> <code>{}</code>"
+            "Hi! Online turin ka inring e😊\n<b>Haven't slept since:</b> <code>{}</code>"
             .format(uptime),
             parse_mode=ParseMode.HTML)
 
@@ -316,7 +309,7 @@ def get_help(update: Update, context: CallbackContext):
         if len(args) >= 2 and any(args[1].lower() == x for x in HELPABLE):
             module = args[1].lower()
             update.effective_message.reply_text(
-                f"Private ah min be rawh pui tur che a Min duh chuan {module.capitalize()}",
+                f"Puih i mamawh chuan min rawn private rawh {module.capitalize()}",
                 reply_markup=InlineKeyboardMarkup([[
                     InlineKeyboardButton(
                         text="Help",
@@ -325,7 +318,7 @@ def get_help(update: Update, context: CallbackContext):
                 ]]))
             return
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Command theihna list i hriat duh chuan min rawn pribate rawh.",
             reply_markup=InlineKeyboardMarkup([[
                 InlineKeyboardButton(
                     text="Help",
@@ -534,7 +527,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "I am now online!")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "Ka inpeih e😊")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!")

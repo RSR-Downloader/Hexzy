@@ -57,7 +57,7 @@ Hi {}, ka hming chu *{}* ani!
 
 HELP_STRINGS = """
 Hello.
-Kei hi Group enkawl pui thei bot ka ni a,i group ah i zangkhai zawk nan hna ka thawk thei e.
+Kei hi Group enkawl pui thei bot ka ni a,i group ah i zangkhai zawk nan hna ka thawk thei e,i awmna group ah min add la,admin ah min dah bawk dawn nia aw.
 
 
 {}
